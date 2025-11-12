@@ -7,8 +7,12 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    command: sh -c "npm ci && npm run build && npm run preview -- --host 0.0.0.0 --port 8081"
-    ports:
-      - "8081:8081"
     environment:
       - NODE_ENV=production
+    ports:
+      - "8081:8081"
+    command: sh -c "
+      npm install &&
+      npx vite build &&
+      npx vite preview --host 0.0.0.0 --port 8081
+    "
