@@ -7,11 +7,13 @@ services:
     working_dir: /app
     volumes:
       - .:/app
-    environment:
-      - NODE_ENV=production
     ports:
       - "8081:8081"
+    # Don't set NODE_ENV=production until after build
     command: >
-      sh -c "npm install &&
-             npx vite build &&
-             npx vite preview --host 0.0.0.0 --port 8081"
+      sh -c "
+        npm ci --include=dev &&
+        npx vite build &&
+        NODE_ENV=production npx vite preview --host 0.0.0.0 --port 8081
+      "
+
