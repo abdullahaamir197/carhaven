@@ -74,7 +74,7 @@ class FrontendUiTests {
   @DisplayName("Navbar shows the CarHaven brand text")
   void navbarBrandDisplaysCarHaven() {
     goTo("/");
-    WebElement brand = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav a[href='\/'] span")));
+    WebElement brand = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("nav a[href='/'] span")));
     assertEquals("CarHaven", brand.getText(), "Navbar brand text should be CarHaven");
   }
 
