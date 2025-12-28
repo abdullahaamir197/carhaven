@@ -274,9 +274,6 @@ The pipeline sends HTML-formatted emails with:
 
 ---
 
-<p align="center">
-  Made with ❤️ by Hamza Naeem
-</p>
 
 
 
